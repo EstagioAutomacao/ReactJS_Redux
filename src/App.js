@@ -1,23 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Provider } from "react-redux";
+
+import Sidebar from "./components/Sidebar";
+import Video from "./components/Video";
+import store from "./store";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1 style={{ width: "100%", textAlign: "center" }}>ReactJS com Redux</h1>
+      <hr style={{ marginBottom: 5 }} />
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-between",
+          padding: 10,
+        }}
+      >
+        <Provider store={store}>
+          <Video style={{ marginLeft: 2 }} />
+          <Sidebar style={{ marginRigth: 2 }} />
+        </Provider>
+      </div>
     </div>
   );
 }
